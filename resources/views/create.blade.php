@@ -9,10 +9,8 @@
 <body>
     <h1>Show the form to create a new product</h1>
 
-    <form method="POST" action={{route('store')}} > <!--enctype="multipart/form-data" -->
+    <form method="POST" action={{route('store')}} enctype="multipart/form-data">
         @csrf
-         <!-- Equivalent to... -->
-        <!-- input type="hidden" name="_token" value="{{ csrf_token() }}" / -->
 
         <label for="product_id">Product Id</label>
         <input id="product_id" name="product_id" type="text" value="{{ old('product_id') }}" class="@error('product_id') is-invalid @enderror" />

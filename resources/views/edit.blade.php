@@ -9,7 +9,7 @@
 <body>
     <h1>Show the form to edit a product</h1>
 
-    <form method="POST" action={{route('update', $data->id)}} > <!--enctype="multipart/form-data" -->
+    <form method="POST" action={{route('update', $data->id)}} enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -46,7 +46,7 @@
         @enderror
 
         <label for="image">Image</label>
-        <input id="image" name="image" type="text" value="{{ $data->image }}" class="@error('image') is-invalid @enderror" />
+        <input id="image" name="image" type="file" value="{{ $data->image }}" class="@error('image') is-invalid @enderror" />
         @error('image')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror

@@ -35,13 +35,25 @@ class ProductController extends Controller
             'image' => 'nullable',
         ]);
 
-        /*
-        $imgName=time() . "." . $request->image->extention();
-        $request->image->move(public_path('images'), $imgName);
-        //$request->image=$imgName;
-        */
+        $imgName= '';
+        if($request->image!=null){
+            $imgName= time() . "." . $request->image->extension();
+            $request->image->move(public_path('images'), $imgName);
+        }
 
-        return Product::create($request->input());
+        $product=new Product();
+
+        $product->product_id=$request->product_id;
+        $product->name=$request->name;
+        $product->description=$request->description;
+        $product->price=$request->price;
+        $product->stock=$request->stock;
+        $product->image=$imgName;
+
+        $product->save();
+
+        return 'Create Product successfully';
+
     }
 
     public function showASpecificProduct(Request $request){
@@ -68,10 +80,20 @@ class ProductController extends Controller
         $request->image->move(public_path('images'), $imgName);
         //$request->image=$imgName;
         */
+
+        $imgName= '';
+        if($request->image!=null){
+            $imgName= time() . "." . $request->image->extension();
+            $request->image->move(public_path('images'), $imgName);
+        }
+        
         $product=Product::find($request->id);
         $product->product_id=$request->product_id;
         $product->name=$request->name;
+        $product->description=$request->description;
         $product->price=$request->price;
+        $product->stock=$request->stock;
+        $product->image=$imgName;
 
         $product->save();
 

@@ -18,6 +18,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th>Stok</th>
                 <th>Image</th>
             </tr>
             <tr>
@@ -26,6 +27,7 @@
                 <td>{{$data->name}}</td>
                 <td>{{$data->description}}</td>
                 <td>{{$data->price}}</td>
+                <td>{{$data->stock}}</td>
                 <td>{{$data->image}}</td>
             </tr>
         </table>
