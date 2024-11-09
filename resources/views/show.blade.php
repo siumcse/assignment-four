@@ -31,15 +31,6 @@
         </table>
     </div>
 
-    <div>
-        <form method="POST" action={{route('delete', $data->id)}} > <!--enctype="multipart/form-data" -->
-            @csrf
-            @method('DELETE')
-            <input type="submit" value="Delete" style="color:red">
-
-        </form>
-    </div>
-
 @else
     <div>
         <h1>No Data Found</h1>
